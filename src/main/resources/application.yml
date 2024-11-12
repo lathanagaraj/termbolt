@@ -1,18 +1,17 @@
 spring:
+  config:
+    import: secrets.yml
   application:
     name: neon
   ai:
     vectorstore:
       cosmosdb:
         endpoint: https://neon-cosmosdb.documents.azure.com:443/
-        key: qNR6UUukfcuFYtDYqwrzU0XTxxWYYdesEKofNvZxldB01wjBWeY5PF94iut1g2cjLARVaQVutizcACDbELnU6g==
         container-name: neon-cosmosdb-container
         database-name: neon-cosmosdb-database
         metadata-fields: ""
-        partition-key-path: /codeChunk
     azure:
       openai:
-        api-key: 0c6a9802ad8040e180c296aa86c3041d
         endpoint: https://eastus2.api.cognitive.microsoft.com/
         chat:
           options:
@@ -26,10 +25,8 @@ server:
 azure:
   formrecognizer:
     endpoint: https://eastus2.api.cognitive.microsoft.com/
-    key: b2038ffa39074fcb8625fd0bd50fac07
   search:
     endpoint: https://neon-search-service.search.windows.net
-    key: 9s97uy8Hp4Helwq6VkQMULXxLDVqljqQQe2yhd5lf6AzSeAEcf0X
     indexname: neon-contract-index
     semantic-search-config: neon-contract-semantic-config
 
