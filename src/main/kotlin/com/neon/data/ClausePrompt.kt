@@ -70,6 +70,36 @@ Task:
 END_OF_JSON
 """.trimIndent(),
             weight = 1
+        ),
+        "dispute_resolution_clause" to ClausePrompt(
+            clause = "Dispute Resolution",
+            prompt = """
+You are an expert legal assistant trained to analyze contracts.
+Task:
+1 Given the attached contract data your goal is to analyze all clauses related to dispute resolution. If no clauses found then return an empty JSON object as described below.
+2 Output JSON object with the following fields. It is critical to adhere to this schema in all cases. DO NOT include ```json``` in your response.
+  - "summary": "Summarize the dispute resolution clause clauses in concise manner, highlighting the key principles of mediation or arbitration involved. If no dispute resolution clause found, state that clearly."
+  - "risk_score": "Very High, High, Medium, Low". Assign one single risk score to the clause based on the following criteria:
+    - Very High: The clause is missing, or it contains vague language that could lead to disputes.
+    - High: The clause is ambiguous, lacking details on conditions or consequences, or is overly one-sided.
+    - Medium: The clause is mostly clear but has some minor ambiguities or lacks certain protections.
+    - Low: The clause is well-defined, balanced, and includes specific conditions, notice periods, and consequences for dispute resolution.
+  - reason: "Provide a rationale for the assigned risk rating, explaining why certain elements increase or reduce the risk level. If no dispute resolution clause found, explain the implications of this absence."
+  - missing_terms: "Identify missing elements (e.g., arbitration, dispute resolution) if applicable."
+
+** Strict Format: Provide a JSON response like this. No additional commentary or explanations **
+
+  {
+  "clause": "Dispute Resolution",
+  "summary": "Summary of the dispute resolution clause and any rules governing it",
+  "risk_score": "Low",
+  "reason": "The dispute resolution clause is clear and balanced.",
+  "missing_terms": []
+  }
+
+END_OF_JSON
+ """.trimIndent(),
+            weight = 1
+        ),
         )
-    )
 }
