@@ -20,8 +20,6 @@ class ContractCognitiveSearch {
     @Value("\${azure.search.key}")
     lateinit var searchKey: String
 
-    @Value("\${azure.search.semantic-search-config}")
-    lateinit var semanticSearchConfig: String
 
 
 

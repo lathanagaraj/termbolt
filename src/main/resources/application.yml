@@ -4,18 +4,12 @@ spring:
   application:
     name: neon
   ai:
-    vectorstore:
-      cosmosdb:
-        endpoint: https://neon-cosmosdb.documents.azure.com:443/
-        container-name: neon-cosmosdb-container
-        database-name: neon-cosmosdb-database
-        metadata-fields: ""
     azure:
       openai:
-        endpoint: https://amulu-m3et0nsk-westeurope.openai.azure.com/
+        endpoint: https://genai-openai-mitr.openai.azure.com/
         chat:
           options:
-            deployment-name: gpt-35-turbo
+            deployment-name: gpt-4o
         embedding:
           options:
             model: embedding-model
@@ -24,9 +18,8 @@ server:
 
 azure:
   formrecognizer:
-    endpoint: https://eastus2.api.cognitive.microsoft.com/
+    endpoint: https://neon-document-intelligence.cognitiveservices.azure.com/
   search:
-    endpoint: https://neon-search-service.search.windows.net
-    indexname: neon-chat-contracts-index
-    semantic-search-config: neon-contract-semantic-config
+    endpoint: https://neon-searchservice.search.windows.net
+
 
