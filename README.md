@@ -18,7 +18,8 @@ This project is a Spring Boot service for analyzing contract clauses using OpenA
 
 2. **Configure application properties: Update the application.properties file with your Azure Form Recognizer and OpenAI credentials.**
 
-```spring.ai.azure.openai.endpoint=YOUR_OPENAI_ENDPOINT
+```
+spring.ai.azure.openai.endpoint=YOUR_OPENAI_ENDPOINT
 spring.ai.azure.openai.api-key=YOUR_OPENAI_API_KEY
 spring.ai.azure.openai.chat.options.deployment-name=YOUR_DEPLOYMENT_NAME
 azure.search.endpoint=YOUR_SEARCH_ENDPOINT
