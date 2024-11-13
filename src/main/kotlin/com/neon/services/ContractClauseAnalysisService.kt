@@ -72,6 +72,39 @@ class ContractClauseAnalysisService {
         return parseResponse(jsonResponse)
     }
 
+
+    fun chat(contractName: String, version: String, userPrompt: String ): String {
+        val indexName = contractIndexName(contractName, version)
+        val systemPrompt =  """"""
+        val messages = listOf(
+            ChatRequestSystemMessage(systemPrompt),
+            ChatRequestUserMessage(userPrompt)
+        )
+
+        val datasource =  AzureSearchChatExtensionConfiguration(AzureSearchChatExtensionParameters(searchEndpoint,indexName).setAuthentication(OnYourDataApiKeyAuthenticationOptions(searchKey)))
+
+        val options = ChatCompletionsOptions(messages)
+            .setModel(chatDeploymentModel)
+            .setMaxTokens(1000)
+            .setTemperature(0.0)
+            .setTopP(1.0)
+            .setStop(listOf("END_OF_JSON"))
+            .setFrequencyPenalty(0.0)
+            .setPresencePenalty(0.0)
+            .setDataSources(listOf(datasource))
+
+
+        println("Sending request to OpenAI with prompt ------------------------------------ ")
+        println("system prompt : $systemPrompt")
+        println("user prompt : $userPrompt")
+        val response = openAiClient.getChatCompletions(chatDeploymentModel,options)
+
+        val answer =  response.choices[0].message.content.trim()
+        println("got response from OpenAI ------------------------------------ ")
+        return answer
+
+    }
+
     fun parseResponse(response: String): ClauseAnalysisResponse {
         val mapper = jacksonObjectMapper()
         return mapper.readValue(response, ClauseAnalysisResponse::class.java)

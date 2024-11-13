@@ -42,7 +42,7 @@ END_OF_JSON
 
             ) ,
         "termination_clause" to ClausePrompt(
-            clause = "termination clause",
+            clause = "Termination Terms",
             prompt = """
 You are an expert legal assistant trained to analyze contracts.
 Task:

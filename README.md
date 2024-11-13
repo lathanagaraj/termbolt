@@ -80,3 +80,26 @@ Response:
     },
     ...
 ]
+```
+
+### Chat API
+
+#### POST /api/chat
+
+This endpoint allows users to interact with the contract analysis chat service.
+
+**Request Parameters:**
+
+- `name` (String): The name of the contract.
+- `version` (String): The version of the contract.
+- `userprompt` (String): The user's prompt or question.
+
+**Example Request:**
+
+```bash
+curl -X POST "http://localhost:8080/api/chat" \
+     -d "name=ContractName" \
+     -d "version=1.0" \
+     -d "userprompt=What is the termination clause?"
+
+Example 
