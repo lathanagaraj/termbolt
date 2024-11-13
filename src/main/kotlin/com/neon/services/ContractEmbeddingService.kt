@@ -1,4 +1,4 @@
-package com.neon;
+package com.neon.services;
 
 import com.azure.ai.openai.OpenAIClient
 import com.azure.ai.openai.OpenAIClientBuilder

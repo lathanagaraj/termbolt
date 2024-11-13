@@ -1,0 +1,23 @@
+Task:
+Given the attached contract data, your goal is to analyze any clause related to magical liability (if it exists). This clause would hypothetically cover the consequences of using magical powers or supernatural interventions in the performance of contractual duties.
+Output a JSON object with the following fields:
+"summary": "Summarize the magical liability clause in a concise manner, highlighting key obligations or actions involved. If clause is missing, state that clearly."
+"risk_score": "Very High, High, Medium, Low". Assign one single risk score to the clause based on the following criteria:
+Very High: The clause is missing, or it contains vague or fantastical language that could lead to disputes.
+High: The clause is ambiguous, lacks details on acceptable magical practices, protections, or is overly one-sided.
+Medium: The clause is mostly clear but has some minor ambiguities or lacks certain protections.
+Low: The clause is well-defined, balanced, and includes specific conditions, protections, and limitations on magical liability.
+reason: "Provide a rationale for the assigned risk rating, explaining why certain elements increase or reduce the risk level. If clause is missing, state that clearly."
+missing_terms: "Identify missing elements (e.g., magical powers limits, acceptable interventions, liabilities related to misuse of magic) if applicable."
+
+Strict Format: Provide a JSON response like this. No additional commentary or explanations.
+
+```json
+  {
+  "summary": "This clause specifies that neither party shall employ supernatural abilities or magical powers in the execution of duties under this Agreement. If either party inadvertently activates magical forces that affect the Agreement, they are liable for any resulting damage, and the other party may terminate the Agreement immediately without penalty.",
+  "risk_score": "High",
+  "reason": "The clause covers magical liability generally but lacks specifics on acceptable uses of magic and consequences for accidental activation.",
+  "missing_terms": ["Definition of acceptable magical practices", "Provisions for unintended magical consequences"]
+  }
+```
+END_OF_JSON

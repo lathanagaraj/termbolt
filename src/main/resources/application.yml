@@ -12,21 +12,21 @@ spring:
         metadata-fields: ""
     azure:
       openai:
-        endpoint: https://eastus2.api.cognitive.microsoft.com/
+        endpoint: https://amulu-m3et0nsk-westeurope.openai.azure.com/
         chat:
           options:
-            deployment-name: neon-gpt-4
+            deployment-name: gpt-35-turbo
         embedding:
           options:
             model: embedding-model
 server:
-  port: 8081
+  port: 8080
 
 azure:
   formrecognizer:
     endpoint: https://eastus2.api.cognitive.microsoft.com/
   search:
     endpoint: https://neon-search-service.search.windows.net
-    indexname: neon-contract-index
+    indexname: neon-chat-contracts-index
     semantic-search-config: neon-contract-semantic-config
 
