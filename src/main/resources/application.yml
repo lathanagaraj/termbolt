@@ -9,7 +9,7 @@ spring:
         endpoint: https://genai-openai-mitr.openai.azure.com/
         chat:
           options:
-            deployment-name: gpt-4o
+            deployment-name: gpt-4o-2
         embedding:
           options:
             model: embedding-model
